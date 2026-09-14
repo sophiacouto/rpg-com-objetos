@@ -47,7 +47,7 @@ class Guerreiro extends Personagem {
     golpePesado(personagem){
     personagem.recebeDano(this.ataque * 2)
 }
-
+}
 const guerreiro = new Guerreiro("Alfarr", 60, 20, 15)
 
 const elfo = new Personagem("Logon", 80, 25)
@@ -60,6 +60,26 @@ const dragão = new Personagem("Diaval", 100, 50)
 
 const anjo = new Personagem("Muriel", 110, 15)
 
-guerreiro.golpePesado(mago)
+const personagens = [
+    guerreiro,
+    elfo,
+    mago,
+    arqueiro,
+    dragão,
+    anjo 
+]
 
-mago.mostrarStatus()
+personagens.forEach(function(personagem){
+    personagem.mostrarStatus()
+})
+let turno = 1 
+let jogadorAtual = 0 
+function proximoTurno(){
+    turno = turno + 1
+    jogadorAtual = jogadorAtual === 0 ? 1 : 0 
+}
+proximoTurno()
+proximoTurno()
+
+console.log(turno)
+console.log(jogadorAtual)
